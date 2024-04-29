@@ -15,6 +15,8 @@ Monk Synth is a web-based audio synthesizer built with p5.js, inspired by an int
 
 ## Live Demo
 
+We currently only support it on computers, and we will add support for mobile devices in the future.
+
 Experience Monk Synth live through this link: **[Monk Synth Live](https://editor.p5js.org/1805318611/full/ivbzDqVz1)**
 
 For the Best Experience, We Recommend Using [Chrome](https://www.google.com/chrome/).
@@ -43,16 +45,16 @@ Once the project is up and running, the interface will provide several control o
 
 ### Keyboard Controls
 
-- **`A` Key**: Starts and stops the first oscillator. When pressed, the oscillator will start playing, and when released, it will stop.
-- **`S` Key**: Controls the second oscillator in the same manner as the `A` key.
-- **`I` Key**: Pressing `I` will display the software introduction, providing an overview and helpful information about how to use the synthesizer and its features.
-- **`?` or `/` Key**: Displays help or additional information about how to use the synthesizer. This can be a pop-up or a page explaining different controls and features.
+- **`A` Key**: Starts and stops __Oscillator A__. When pressed, the oscillator will start playing, and when released, it will stop.
+- **`S` Key**: Controls __Oscillator B__ in the same manner as the `A` key.
+- **`I` Key**: Pressing `I` will display the __software introduction__, providing an overview and helpful information about how to use the synthesizer and its features.
+- **`?` or `/` Key**: Displays __help__ or additional information about how to use the synthesizer. This can be a pop-up or a page explaining different controls and features.
 
 ### Interactive Controls
 
-- **Waveform Selection**: Click on the waveform buttons to choose the desired oscillator waveform.
-- **ADSR Control**: Use the ADSR sliders to adjust the dynamics of the sound.
-- **Frequency Adjustment**: Drag the frequency sliders to change the base frequency of the oscillator.
+- **Waveform Selection**: Click on the waveform buttons to choose the desired oscillator __waveform__.
+- **ADSR Control**: Use the __ADSR__ sliders to adjust the dynamics of the sound.
+- **Frequency Adjustment**: Drag the frequency sliders to change the __base frequency__ of the oscillator.
 
 ![Monk Synth Guide](assets/splash2.jpg "Monk Synth Guide")
 ![Monk Synth Guide](assets/splash3.jpg "Monk Synth Guide")
