@@ -47,8 +47,8 @@ Once the project is up and running, the interface will provide several control o
 
 - **`A` Key**: Starts and stops __Oscillator A__. When pressed, the oscillator will start playing, and when released, it will stop.
 - **`S` Key**: Controls __Oscillator B__ in the same manner as the `A` key.
-- **`I` Key**: Pressing `I` will display the __software introduction__, providing an overview and helpful information about how to use the synthesizer and its features.
-- **`?` or `/` Key**: Displays __help__ or additional information about how to use the synthesizer. This can be a pop-up or a page explaining different controls and features.
+- **`I` Key**: Pressing `I` will display the __software introduction__, providing the overview page.
+- **`?` or `/` Key**: Displays __help__ or additional information about how to use the synthesizer. 
 
 ### Interactive Controls
 
