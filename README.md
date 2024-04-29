@@ -1,4 +1,5 @@
 # Monk Synth
+![Monk Synth Cover](splash1.jpg "Monk Synth Cover")
 
 ## Project Overview
 
@@ -9,6 +10,8 @@ Monk Synth is a web-based audio synthesizer built with p5.js, inspired by an int
 - **Dual Oscillators**: Each oscillator can select different waveforms and adjust ADSR (Attack, Decay, Sustain, Release) parameters.
 - **Audio Visualization**: Visual representation of audio waveforms in real-time, allowing users to see the sound changes visually.
 - **Interactive Controls**: Users can adjust audio parameters using sliders and buttons to create diverse sound effects.
+
+
 
 ## Live Demo
 
@@ -39,6 +42,9 @@ Once the project is up and running, the interface will provide several control o
 - **Waveform Selection**: Click on the waveform buttons to choose the desired oscillator waveform.
 - **ADSR Control**: Use the ADSR sliders to adjust the dynamics of the sound.
 - **Frequency Adjustment**: Drag the frequency sliders to change the base frequency of the oscillator.
+
+![Monk Synth Guide](splash2.jpg "Monk Synth Guide")
+![Monk Synth Guide](splash3.jpg "Monk Synth Guide")
 
 ## How to Contribute
 
