@@ -39,6 +39,15 @@ Access http://localhost:8080 to start the synthesizer.
 
 Once the project is up and running, the interface will provide several control options:
 
+### Keyboard Controls
+
+- **`A` Key**: Starts and stops the first oscillator. When pressed, the oscillator will start playing, and when released, it will stop.
+- **`S` Key**: Controls the second oscillator in the same manner as the `A` key.
+- **`I` Key**: Pressing `I` will display the software introduction, providing an overview and helpful information about how to use the synthesizer and its features.
+- **`?` or `/` Key**: Displays help or additional information about how to use the synthesizer. This can be a pop-up or a page explaining different controls and features.
+
+### Interactive Controls
+
 - **Waveform Selection**: Click on the waveform buttons to choose the desired oscillator waveform.
 - **ADSR Control**: Use the ADSR sliders to adjust the dynamics of the sound.
 - **Frequency Adjustment**: Drag the frequency sliders to change the base frequency of the oscillator.
