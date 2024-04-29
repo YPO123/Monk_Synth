@@ -15,7 +15,9 @@ Monk Synth is a web-based audio synthesizer built with p5.js, inspired by an int
 
 ## Live Demo
 
-Experience Monk Synth live through this link: [Monk Synth Live](https://editor.p5js.org/1805318611/full/ivbzDqVz1)
+Experience Monk Synth live through this link: **[Monk Synth Live](https://editor.p5js.org/1805318611/full/ivbzDqVz1)**
+
+For the Best Experience, We Recommend Using [Chrome](https://www.google.com/chrome/).
 
 ## Local Installation
 
