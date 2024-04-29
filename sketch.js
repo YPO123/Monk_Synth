@@ -43,13 +43,14 @@ let splashImg1;
 let BG;
 let BowlL
 let BowlH
-let audioStarted = false; 
+let audioStarted = false;
 var mode=0;
+let guide=0;
 
 
 //背景 splash 设置
 function preload(){
-  
+
   BowlL=loadSound('assets/Bowl Low.mp3')
   BowlH=loadSound('assets/Bowl High.mp3')
   splashImg1=loadImage('assets/splash1.jpg');
@@ -74,17 +75,17 @@ function setup() {
     fftB = new p5.FFT();
     fftA.setInput(oscA);
     fftB.setInput(oscB);
-    
-  
+
+
 //Freq滑块
     createWaveformButtons(oscA, envA, oscHeightA);
     createADSRSlidersForOscA(envA, oscHeightA);
     createFrequencySliders(oscA, oscHeightA + 195);
 
-   createWaveformButtons(oscB, envB, height / 2 + 20 + 20);
-   createADSRSlidersForOscB(envB, height / 2 + 20 + 20);
-   createFrequencySliders(oscB, height / 2 + 220 + 17);
-    
+    createWaveformButtons(oscB, envB, height / 2 + 20 + 20);
+    createADSRSlidersForOscB(envB, height / 2 + 20 + 20);
+    createFrequencySliders(oscB, height / 2 + 220 + 17);
+
   }
 }
 
@@ -100,31 +101,11 @@ function createWaveformButtons(osc, env, yPos) {
     let btn = createButton(waveform);
     btn.position(40, yPos + index * 50);
     btn.mousePressed(() => osc.setType(waveform));
-     waveformButtons.push(btn);
+    waveformButtons.push(btn);
   });
 }
 
 //ADSR滑块
-/*function createADSRSliders(env, yPos) {
-  sliderAttack = createSlider(0, 1, 0.1, 0.01);
-  sliderDecay = createSlider(0, 1, 0.2, 0.01);
-  sliderSustain = createSlider(0, 1, 0.5, 0.01);
-  sliderRelease = createSlider(0, 1, 0.5, 0.01);
-  sliderAttack.position(150, yPos);
-  sliderDecay.position(150, yPos + 50);
-  sliderSustain.position(150, yPos + 100);
-  sliderRelease.position(150, yPos + 150);
-  sliders.push(sliderAttack);
-  sliders.push(sliderDecay);
-  sliders.push(sliderSustain);
-  sliders.push(sliderRelease);
-  
-  sliderAttack.input(() => env.setADSR(sliderAttack.value(), sliderDecay.value(), sliderSustain.value(), sliderRelease.value()));
-  sliderDecay.input(() => env.setADSR(sliderAttack.value(), sliderDecay.value(), sliderSustain.value(), sliderRelease.value()));
-  sliderSustain.input(() => env.setADSR(sliderAttack.value(), sliderDecay.value(), sliderSustain.value(), sliderRelease.value()));
-  sliderRelease.input(() => env.setADSR(sliderAttack.value(), sliderDecay.value(), sliderSustain.value(), sliderRelease.value()));
-  console.log(`ADSR updated: Attack=${sliderAttack.value()}, Decay=${sliderDecay.value()}, Sustain=${sliderSustain.value()}, Release=${sliderRelease.value()}`);
-}*/
 // 对于 Oscillator A
 function createADSRSlidersForOscA(env, yPos) {
   sliderAttackA = createSlider(0, 1, 0.1, 0.01);
@@ -207,8 +188,8 @@ function ADSRLabels() {
 //Splash
 function splash(){
   if(start==0){
-    image(splashImg1,0,0,800,600); 
-  }else if(start==1){
+    image(splashImg1,0,0,800,600);
+  }else if(start==1||guide==1){
     image(splash2,0,0,800,600);
     // 隐藏所有按钮
     waveformButtons.forEach(btn => {
@@ -218,8 +199,9 @@ function splash(){
     sliders.forEach(slider => {
       slider.hide();
     });
-  }else if(start==2){
+  }else if(start==2||guide==2){
     image(splash3,0,0,800,600);
+
   }
 }
 
@@ -231,6 +213,8 @@ function showControls() {
 function mousePressed(){
   if(mode==1)
     start++;
+  if(guide>0)
+    guide++;
 }
 
 function draw() {
@@ -238,43 +222,43 @@ function draw() {
     mode = 1;
     setTimeout(function() {
       if(start==0)
-      start=1;
-    }, 1000);   
+        start=1;
+    }, 1000);
   }
   if (mode != 0) {
     background(BG);
     intro.hide();
-    
+
     if(start>2){
-        userStartAudio();
-        audioStarted = true;
-        
+      userStartAudio();
+      audioStarted = true;
+
       if(start==3){
         setup();
         start++;
-        
+
       }
-    
-     ADSRLabels();
-     frequencySlidersLable();
 
-     waveformA = fftA.waveform();
-     waveformB = fftB.waveform();
+      ADSRLabels();
+      frequencySlidersLable();
 
-     drawWaveform(waveformA, width / 2 + 20, 50, 'A');
-     drawWaveform(waveformB, width / 2 + 20, height / 2 + 20, 'B');
+      waveformA = fftA.waveform();
+      waveformB = fftB.waveform();
 
-     drawWaveformDisplay(width / 2 + 20, 50, 'A');
-     drawWaveformDisplay(width / 2 + 20, height / 2 + 20, 'B');
+      drawWaveform(waveformA, width / 2 + 20, 50, 'A');
+      drawWaveform(waveformB, width / 2 + 20, height / 2 + 20, 'B');
+
+      drawWaveformDisplay(width / 2 + 20, 50, 'A');
+      drawWaveformDisplay(width / 2 + 20, height / 2 + 20, 'B');
 
 
-
-     showControls();
-   }
-   if(start<3){
-     splash();
-   }
- }
+      if(!(guide>0&&guide<3))
+        showControls();
+    }
+    if(start<3||(guide>0&&guide<3)){
+      splash();
+    }
+  }
 }
 
 //Visualizer
@@ -341,16 +325,16 @@ function keyReleased() {
   } else if (key === 'h' && playingH) {
     playingH = false;}
   if(key=='?'||key=='/'){
-    start=1;
+    guide=1;
   }
   if(key=='i'){
     mode=0;
     setup();
-     // 隐藏所有按钮
+    // 隐藏所有按钮
     waveformButtons.forEach(btn => {
       btn.hide();
     });
-     // 隐藏所有滑块
+    // 隐藏所有滑块
     sliders.forEach(slider => {
       slider.hide();
     });
