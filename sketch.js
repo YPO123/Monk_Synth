@@ -257,19 +257,19 @@ function drawWaveformDisplay(xPos, yPos, oscLabel) {
 
 //音频触发
 function keyPressed() {
-  if (key === 'a') {
+  if (key === 'a' || key === 'A') {
     if (!playingA) {
       oscA.start();
       envA.play(oscA);
       playingA = true;
     }
-  } else if (key === 's') {
+  } else if ((key === 's' || key === 'S')) {
     if (!playingB) {
       oscB.start();
       envB.play(oscB);
       playingB = true;
     }
-  }  if (key === 'l') {
+  }  if (key === 'l' ) {
     if (!playingL) {
       BowlL.play();
       playingL = true;}
@@ -277,17 +277,17 @@ function keyPressed() {
     if (!playingH) {
       BowlH.play();
       playingH = true;}
-}
+  }
 }
 
 function keyReleased() {
-  if (key === 'a' && playingA) {
+  if ((key === 'a' || key === 'A') && playingA) {
     envA.triggerRelease(oscA);
     playingA = false;
-  } else if (key === 's' && playingB) {
+  } else if ((key === 's' || key === 'S') && playingB) {
     envB.triggerRelease(oscB);
     playingB = false;
-  }  if (key === 'l' && playingL) {
+  }  if (key === 'l'  && playingL) {
     playingL = false;
   } else if (key === 'h' && playingH) {
     playingH = false;}
