@@ -1,5 +1,5 @@
 # Monk Synth
-![Monk Synth Cover](splash1.jpg "Monk Synth Cover")
+![Monk Synth Cover](assets/splash1.jpg "Monk Synth Cover")
 
 ## Project Overview
 
@@ -52,8 +52,8 @@ Once the project is up and running, the interface will provide several control o
 - **ADSR Control**: Use the ADSR sliders to adjust the dynamics of the sound.
 - **Frequency Adjustment**: Drag the frequency sliders to change the base frequency of the oscillator.
 
-![Monk Synth Guide](splash2.jpg "Monk Synth Guide")
-![Monk Synth Guide](splash3.jpg "Monk Synth Guide")
+![Monk Synth Guide](assets/splash2.jpg "Monk Synth Guide")
+![Monk Synth Guide](assets/splash3.jpg "Monk Synth Guide")
 
 ## How to Contribute
 
