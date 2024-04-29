@@ -43,19 +43,19 @@ let splashImg1;
 let BG;
 let BowlL
 let BowlH
-let audioStarted = false;
+let audioStarted = false; 
 var mode=0;
 
 
 //背景 splash 设置
 function preload(){
-
-  BowlL=loadSound('Bowl Low.mp3')
-  BowlH=loadSound('Bowl High.mp3')
-  splashImg1=loadImage('splash1.jpg');
-  splash2=loadImage('splash2.jpg');
-  splash3=loadImage('splash3.jpg');
-  BG=loadImage('111.jpg');
+  
+  BowlL=loadSound('assets/Bowl Low.mp3')
+  BowlH=loadSound('assets/Bowl High.mp3')
+  splashImg1=loadImage('assets/splash1.jpg');
+  splash2=loadImage('assets/splash2.jpg');
+  splash3=loadImage('assets/splash3.jpg');
+  BG=loadImage('assets/111.jpg');
 }
 
 //Osc基础设置
@@ -74,8 +74,8 @@ function setup() {
     fftB = new p5.FFT();
     fftA.setInput(oscA);
     fftB.setInput(oscB);
-
-
+    
+  
 //Freq滑块
     createWaveformButtons(oscA, envA, oscHeightA);
     createADSRSlidersForOscA(envA, oscHeightA);
@@ -84,7 +84,7 @@ function setup() {
    createWaveformButtons(oscB, envB, height / 2 + 20 + 20);
    createADSRSlidersForOscB(envB, height / 2 + 20 + 20);
    createFrequencySliders(oscB, height / 2 + 220 + 17);
-
+    
   }
 }
 
@@ -118,7 +118,7 @@ function createWaveformButtons(osc, env, yPos) {
   sliders.push(sliderDecay);
   sliders.push(sliderSustain);
   sliders.push(sliderRelease);
-
+  
   sliderAttack.input(() => env.setADSR(sliderAttack.value(), sliderDecay.value(), sliderSustain.value(), sliderRelease.value()));
   sliderDecay.input(() => env.setADSR(sliderAttack.value(), sliderDecay.value(), sliderSustain.value(), sliderRelease.value()));
   sliderSustain.input(() => env.setADSR(sliderAttack.value(), sliderDecay.value(), sliderSustain.value(), sliderRelease.value()));
@@ -207,7 +207,7 @@ function ADSRLabels() {
 //Splash
 function splash(){
   if(start==0){
-    image(splashImg1,0,0,800,600);
+    image(splashImg1,0,0,800,600); 
   }else if(start==1){
     image(splash2,0,0,800,600);
     // 隐藏所有按钮
@@ -239,22 +239,22 @@ function draw() {
     setTimeout(function() {
       if(start==0)
       start=1;
-    }, 1000);
+    }, 1000);   
   }
   if (mode != 0) {
     background(BG);
     intro.hide();
-
+    
     if(start>2){
         userStartAudio();
         audioStarted = true;
-
+        
       if(start==3){
         setup();
         start++;
-
+        
       }
-
+    
      ADSRLabels();
      frequencySlidersLable();
 

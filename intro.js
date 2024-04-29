@@ -13,13 +13,13 @@ class Splash {
     stroke(155, 100, 0);
     line(this.canvas.width - this.splashBorder - 40, this.splashBorder + 20, this.canvas.width - this.splashBorder - 20, this.splashBorder + 40);
     line(this.canvas.width - this.splashBorder - 20, this.splashBorder + 20, this.canvas.width - this.splashBorder - 40, this.splashBorder + 40);
-
+    
 
     this.title = createDiv("Monk Synth");
     this.title.style('color: #565658; font-family: Arial, Helvetica, sans-serif; text-align: center; font-size: 24px; transform: translateX(130%); text-shadow: -0.5px -0.5px 0 #FFC107, 0.5px -0.5px 0 #FFC107, -0.5px 0.5px 0 #FFC107, 0.5px 0.5px 0 #FFC107;');
     this.title.position(this.splashBorder + 20, this.splashBorder + 20);
 
-    this.name = createDiv("v1.1.0");
+    this.name = createDiv("v1.1.1");
     this.name.style('color:#565658; transform: translateX(530%)');
     this.name.position(this.splashBorder + 20, this.splashBorder + 50);
 
@@ -31,7 +31,7 @@ class Splash {
 
   update() {
     if (mouseX > this.canvas.width - this.splashBorder - 40 &&
-        mouseX < this.canvas.width - this.splashBorder - 20 && mouseY < this.splashBorder + 40 && mouseY > this.splashBorder + 20) {
+      mouseX < this.canvas.width - this.splashBorder - 20 && mouseY < this.splashBorder + 40 && mouseY > this.splashBorder + 20) {
       return true;
     }
   }
