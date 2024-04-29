@@ -52,7 +52,7 @@ function preload(){
   BowlL=loadSound('Bowl Low.mp3')
   BowlH=loadSound('Bowl High.mp3')
   splashImg1=loadImage('splash1.jpg');
-  //splash2=loadImage('splash2.jpg');
+  splash2=loadImage('splash2.jpg');
   splash3=loadImage('splash3.jpg');
   BG=loadImage('111.jpg');
 }
@@ -162,7 +162,7 @@ function splash(){
   if(start==0){
     image(splashImg1,0,0,800,600); 
   }else if(start==1){
-    //image(splash2,0,0,800,600);
+    image(splash2,0,0,800,600);
     // 隐藏所有按钮
     waveformButtons.forEach(btn => {
       btn.hide();
