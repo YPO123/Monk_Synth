@@ -5,7 +5,7 @@ class Splash {
     image(splashImg1, 0, 0, this.canvas.width, this.canvas.height);
     fill(255, 255, 255, 190);
     stroke(255, 255, 0);
-    rect(this.splashBorder, this.splashBorder*1.05, this.canvas.width - this.splashBorder * 2, this.canvas.height - this.splashBorder * 1.2);
+    rect(this.splashBorder, this.splashBorder*1.05, this.canvas.width - this.splashBorder * 2, this.canvas.height - this.splashBorder * 1.5);
 
     fill(255, 255, 0);
     strokeWeight(1);
@@ -19,13 +19,13 @@ class Splash {
     this.title.style('color: #565658; font-family: Arial, Helvetica, sans-serif; text-align: center; font-size: 24px; transform: translateX(130%); text-shadow: -0.5px -0.5px 0 #FFC107, 0.5px -0.5px 0 #FFC107, -0.5px 0.5px 0 #FFC107, 0.5px 0.5px 0 #FFC107;');
     this.title.position(this.splashBorder + 20, this.splashBorder + 20);
 
-    this.name = createDiv("Tian Li & Zichen Huang");
-    this.name.style('color:#565658; transform: translateX(80%)');
-    this.name.position(this.splashBorder + 20, this.splashBorder + 60);
+    this.name = createDiv("v1.0.0");
+    this.name.style('color:#565658; transform: translateX(500%)');
+    this.name.position(this.splashBorder + 20, this.splashBorder + 50);
 
-    this.info = createDiv("This synthesizer is called Monk Synth, inspired by Zichen who wanted to add a Buddha ASCII art for good luck in coding without bugs. We adopted a Buddhist theme throughout.<p> The synthesizer has two oscillators, each capable of selecting different waveforms and modifying ADSR and frequency. Additionally, each oscillator is equipped with an oscilloscope.<p> We have also hidden two Easter eggs in this synthesizer for you to discover! <p><a href=https://editor.p5js.org/1805318611/sketches/ivbzDqVz1>view code</a>");
+    this.info = createDiv("This synthesizer is called \"Monk Synth.\" The synthesizer has two oscillators, each capable of selecting different waveforms and modifying ADSR and frequency.<p>Inspired by Chinese culture, we've added ASCII art of a Buddha for good luck in coding without bugs.<p>We have also hidden two Easter eggs in this synthesizer for you to discover! Come and experience it now!<p>Developers: Tian Li, Zichen Huang<p><a href=https://editor.p5js.org/1805318611/sketches/ivbzDqVz1>view code</a>");
     this.info.style('color:#565658');
-    this.info.position(this.splashBorder + 20, this.splashBorder + 100);
+    this.info.position(this.splashBorder + 20, this.splashBorder + 80);
     this.info.size(this.canvas.width - this.splashBorder * 2 - 50, this.canvas.height - this.splashBorder * 2 - 50);
   }
 
