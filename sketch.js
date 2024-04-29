@@ -36,19 +36,20 @@ let waveformA = [], waveformB = [];
 let waveSize = 200;
 let waveformButtons = [];
 let sliders = [];
-let sliderAttack, sliderDecay, sliderSustain, sliderRelease;
+let sliderAttackA, sliderDecayA, sliderSustainA, sliderReleaseA,sliderAttackB, sliderDecayB, sliderSustainB, sliderReleaseB;
 let sliderFreqA, sliderFreqB;
 let oscHeightA = 50;
 let splashImg1;
 let BG;
 let BowlL
 let BowlH
-let audioStarted = false; 
+let audioStarted = false;
 var mode=0;
+
 
 //背景 splash 设置
 function preload(){
-  
+
   BowlL=loadSound('Bowl Low.mp3')
   BowlH=loadSound('Bowl High.mp3')
   splashImg1=loadImage('splash1.jpg');
@@ -73,17 +74,17 @@ function setup() {
     fftB = new p5.FFT();
     fftA.setInput(oscA);
     fftB.setInput(oscB);
-    
-  
+
+
 //Freq滑块
     createWaveformButtons(oscA, envA, oscHeightA);
-    createADSRSliders(envA, oscHeightA);
+    createADSRSlidersForOscA(envA, oscHeightA);
     createFrequencySliders(oscA, oscHeightA + 195);
 
    createWaveformButtons(oscB, envB, height / 2 + 20 + 20);
-   createADSRSliders(envB, height / 2 + 20 + 20);
+   createADSRSlidersForOscB(envB, height / 2 + 20 + 20);
    createFrequencySliders(oscB, height / 2 + 220 + 17);
-    
+
   }
 }
 
@@ -104,7 +105,7 @@ function createWaveformButtons(osc, env, yPos) {
 }
 
 //ADSR滑块
-function createADSRSliders(env, yPos) {
+/*function createADSRSliders(env, yPos) {
   sliderAttack = createSlider(0, 1, 0.1, 0.01);
   sliderDecay = createSlider(0, 1, 0.2, 0.01);
   sliderSustain = createSlider(0, 1, 0.5, 0.01);
@@ -117,11 +118,57 @@ function createADSRSliders(env, yPos) {
   sliders.push(sliderDecay);
   sliders.push(sliderSustain);
   sliders.push(sliderRelease);
-  
+
   sliderAttack.input(() => env.setADSR(sliderAttack.value(), sliderDecay.value(), sliderSustain.value(), sliderRelease.value()));
   sliderDecay.input(() => env.setADSR(sliderAttack.value(), sliderDecay.value(), sliderSustain.value(), sliderRelease.value()));
   sliderSustain.input(() => env.setADSR(sliderAttack.value(), sliderDecay.value(), sliderSustain.value(), sliderRelease.value()));
   sliderRelease.input(() => env.setADSR(sliderAttack.value(), sliderDecay.value(), sliderSustain.value(), sliderRelease.value()));
+  console.log(`ADSR updated: Attack=${sliderAttack.value()}, Decay=${sliderDecay.value()}, Sustain=${sliderSustain.value()}, Release=${sliderRelease.value()}`);
+}*/
+// 对于 Oscillator A
+function createADSRSlidersForOscA(env, yPos) {
+  sliderAttackA = createSlider(0, 1, 0.1, 0.01);
+  sliderDecayA = createSlider(0, 1, 0.2, 0.01);
+  sliderSustainA = createSlider(0, 1, 0.5, 0.01);
+  sliderReleaseA = createSlider(0, 1, 0.5, 0.01);
+
+  sliderAttackA.position(150, yPos);
+  sliderDecayA.position(150, yPos + 50);
+  sliderSustainA.position(150, yPos + 100);
+  sliderReleaseA.position(150, yPos + 150);
+
+  sliders.push(sliderAttackA);
+  sliders.push(sliderDecayA);
+  sliders.push(sliderSustainA);
+  sliders.push(sliderReleaseA);
+
+  sliderAttackA.input(() => env.setADSR(sliderAttackA.value(), sliderDecayA.value(), sliderSustainA.value(), sliderReleaseA.value()));
+  sliderDecayA.input(() => env.setADSR(sliderAttackA.value(), sliderDecayA.value(), sliderSustainA.value(), sliderReleaseA.value()));
+  sliderSustainA.input(() => env.setADSR(sliderAttackA.value(), sliderDecayA.value(), sliderSustainA.value(), sliderReleaseA.value()));
+  sliderReleaseA.input(() => env.setADSR(sliderAttackA.value(), sliderDecayA.value(), sliderSustainA.value(), sliderReleaseA.value()));
+}
+
+// 对于 Oscillator B
+function createADSRSlidersForOscB(env, yPos) {
+  sliderAttackB = createSlider(0, 1, 0.1, 0.01);
+  sliderDecayB = createSlider(0, 1, 0.2, 0.01);
+  sliderSustainB = createSlider(0, 1, 0.5, 0.01);
+  sliderReleaseB = createSlider(0, 1, 0.5, 0.01);
+
+  sliderAttackB.position(150, yPos);
+  sliderDecayB.position(150, yPos + 50);
+  sliderSustainB.position(150, yPos + 100);
+  sliderReleaseB.position(150, yPos + 150);
+
+  sliders.push(sliderAttackB);
+  sliders.push(sliderDecayB);
+  sliders.push(sliderSustainB);
+  sliders.push(sliderReleaseB);
+
+  sliderAttackB.input(() => env.setADSR(sliderAttackB.value(), sliderDecayB.value(), sliderSustainB.value(), sliderReleaseB.value()));
+  sliderDecayB.input(() => env.setADSR(sliderAttackB.value(), sliderDecayB.value(), sliderSustainB.value(), sliderReleaseB.value()));
+  sliderSustainB.input(() => env.setADSR(sliderAttackB.value(), sliderDecayB.value(), sliderSustainB.value(), sliderReleaseB.value()));
+  sliderReleaseB.input(() => env.setADSR(sliderAttackB.value(), sliderDecayB.value(), sliderSustainB.value(), sliderReleaseB.value()));
 }
 
 //频率滑块
@@ -147,20 +194,20 @@ function frequencySlidersLable(){
 
 //画ADSR标签
 function ADSRLabels() {
-  text('Attack', sliderAttack.x + sliderAttack.width + 40, sliderAttack.y + 10);
-  text('Decay', sliderDecay.x + sliderDecay.width + 40, sliderDecay.y + 10);
-  text('Sustain', sliderSustain.x + sliderSustain.width + 40, sliderSustain.y + 10);
-  text('Release', sliderRelease.x + sliderRelease.width + 40, sliderRelease.y + 10);
-  text('Attack', sliderAttack.x + sliderAttack.width + 40, oscHeightA + 10);
-  text('Decay', sliderDecay.x + sliderDecay.width + 40, oscHeightA + 60);
-  text('Sustain', sliderSustain.x + sliderSustain.width + 40, oscHeightA + 110);
-  text('Release', sliderRelease.x + sliderRelease.width + 40, oscHeightA + 160);
+  text('Attack', sliderAttackA.x + sliderAttackA.width + 40, sliderAttackB.y + 10);
+  text('Decay', sliderDecayA.x + sliderDecayA.width + 40, sliderDecayB.y + 10);
+  text('Sustain', sliderSustainA.x + sliderSustainA.width + 40, sliderSustainB.y + 10);
+  text('Release', sliderReleaseA.x + sliderReleaseA.width + 40, sliderReleaseB.y + 10);
+  text('Attack', sliderAttackA.x + sliderAttackA.width + 40, oscHeightA + 10);
+  text('Decay', sliderDecayA.x + sliderDecayA.width + 40, oscHeightA + 60);
+  text('Sustain', sliderSustainA.x + sliderSustainA.width + 40, oscHeightA + 110);
+  text('Release', sliderReleaseA.x + sliderReleaseA.width + 40, oscHeightA + 160);
 }
 
 //Splash
 function splash(){
   if(start==0){
-    image(splashImg1,0,0,800,600); 
+    image(splashImg1,0,0,800,600);
   }else if(start==1){
     image(splash2,0,0,800,600);
     // 隐藏所有按钮
@@ -192,22 +239,22 @@ function draw() {
     setTimeout(function() {
       if(start==0)
       start=1;
-    }, 1000);   
+    }, 1000);
   }
   if (mode != 0) {
     background(BG);
     intro.hide();
-    
+
     if(start>2){
         userStartAudio();
         audioStarted = true;
-        
+
       if(start==3){
         setup();
         start++;
-        
+
       }
-    
+
      ADSRLabels();
      frequencySlidersLable();
 
@@ -219,7 +266,9 @@ function draw() {
 
      drawWaveformDisplay(width / 2 + 20, 50, 'A');
      drawWaveformDisplay(width / 2 + 20, height / 2 + 20, 'B');
-      
+
+
+
      showControls();
    }
    if(start<3){
@@ -260,13 +309,13 @@ function keyPressed() {
   if (key === 'a' || key === 'A') {
     if (!playingA) {
       oscA.start();
-      envA.play(oscA);
+      envA.triggerAttack(oscA);
       playingA = true;
     }
-  } else if ((key === 's' || key === 'S')) {
+  } else if (key === 's' || key === 'S') {
     if (!playingB) {
       oscB.start();
-      envB.play(oscB);
+      envB.triggerAttack(oscB);
       playingB = true;
     }
   }  if (key === 'l' ) {

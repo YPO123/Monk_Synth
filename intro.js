@@ -13,14 +13,14 @@ class Splash {
     stroke(155, 100, 0);
     line(this.canvas.width - this.splashBorder - 40, this.splashBorder + 20, this.canvas.width - this.splashBorder - 20, this.splashBorder + 40);
     line(this.canvas.width - this.splashBorder - 20, this.splashBorder + 20, this.canvas.width - this.splashBorder - 40, this.splashBorder + 40);
-    
+
 
     this.title = createDiv("Monk Synth");
     this.title.style('color: #565658; font-family: Arial, Helvetica, sans-serif; text-align: center; font-size: 24px; transform: translateX(130%); text-shadow: -0.5px -0.5px 0 #FFC107, 0.5px -0.5px 0 #FFC107, -0.5px 0.5px 0 #FFC107, 0.5px 0.5px 0 #FFC107;');
     this.title.position(this.splashBorder + 20, this.splashBorder + 20);
 
-    this.name = createDiv("v1.0.0");
-    this.name.style('color:#565658; transform: translateX(500%)');
+    this.name = createDiv("v1.1.0");
+    this.name.style('color:#565658; transform: translateX(530%)');
     this.name.position(this.splashBorder + 20, this.splashBorder + 50);
 
     this.info = createDiv("This synthesizer is called \"Monk Synth.\" The synthesizer has two oscillators, each capable of selecting different waveforms and modifying ADSR and frequency.<p>Inspired by Chinese culture, we've added ASCII art of a Buddha for good luck in coding without bugs.<p>We have also hidden two Easter eggs in this synthesizer for you to discover! Come and experience it now!<p>Developers: Tian Li, Zichen Huang<p><a href=https://editor.p5js.org/1805318611/sketches/ivbzDqVz1>view code</a>");
@@ -31,7 +31,7 @@ class Splash {
 
   update() {
     if (mouseX > this.canvas.width - this.splashBorder - 40 &&
-      mouseX < this.canvas.width - this.splashBorder - 20 && mouseY < this.splashBorder + 40 && mouseY > this.splashBorder + 20) {
+        mouseX < this.canvas.width - this.splashBorder - 20 && mouseY < this.splashBorder + 40 && mouseY > this.splashBorder + 20) {
       return true;
     }
   }
