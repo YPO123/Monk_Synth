@@ -1,6 +1,7 @@
 <h1 align="center">圣僧合成器<br>
   <a href="README.md"><img src="assets/us.svg" alt="English" style="width: 2%; height: auto;"></a><strong style="font-size: 24px; line-height: 20px; margin: 0 50px;"> </strong><a href="README.zh.md"><img src="assets/cn.svg" alt="Chinese" style="width: 2%; height: auto;"></a>
 </h1>
+
 ![Monk Synth Cover](assets/splash1.jpg "Monk Synth Cover")
 
 ## 项目概述
