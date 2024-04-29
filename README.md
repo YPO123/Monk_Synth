@@ -1,5 +1,18 @@
-# Monk Synth
+<h1 align="center">Monk Synth<br>
+  <a href="README.md"><img src="assets/us.svg" alt="English" style="width: 2%; height: auto;"></a><strong style="font-size: 24px; line-height: 20px; margin: 0 50px;"> </strong><a href="README.zh.md"><img src="assets/cn.svg" alt="Chinese" style="width: 2%; height: auto;"></a>
+</h1>
+
+
+<!-- ![GitHub stars](https://img.shields.io/github/stars/username/repository?style=social)-->
+<!-- ![GitHub forks](https://img.shields.io/github/forks/username/repository?style=social)-->
+<!-- ![Build Status](https://img.shields.io/travis/username/repository/master.svg)-->
+
 ![Monk Synth Cover](assets/splash1.jpg "Monk Synth Cover")
+
+
+<!--[<img src="assets/us.svg" alt="English" style="width: 3%; height: auto;">](README.md)-->
+<!--[<img src="assets/cn.svg" alt="Chinese" style="width: 3%; height: auto;">](README.zh.md)-->
+
 
 ## Project Overview
 
